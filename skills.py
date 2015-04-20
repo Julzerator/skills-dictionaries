@@ -205,7 +205,9 @@ def word_length(words):
         if word_length_sorter.get(length) == None:
             word_length_sorter[length] = [word]
         else:
-            word_length_sorter[length] = word_length_sorter.get(length).append(word)
+            list_item = word_length_sorter.get(length)  # Look at .setdefault
+            list_item.append(word)
+            word_length_sorter[length] = list_item
 
     sorted_lengths = sorted(word_length_sorter.keys())
     word_tuples = ()
